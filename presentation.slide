@@ -1830,7 +1830,7 @@ add tests to your `bank` package
 
 * Test Coverage
 - test coverage refers to the percentage of statements in your code that are executed by your tests
-- ideally, we want 100% coverage ("untested code is broken code")
+- what is the "right" percentage of coverage we should target?
 
  package size
  
