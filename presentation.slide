@@ -1824,7 +1824,7 @@ add tests to your `bank` package
  }
 
 * Exercise: Example Tests
-- write a Golang program that takes a string message such as "Hello from Intuit", splits it into words, and then enters the words as keys in a map (the values are up to you)
+- write a Golang program that takes a string message such as "Hello from VMware", splits it into words, and then enters the words as keys in a map (the values are up to you)
 - iterate through the map and output the keys, which will be in a random order
 - write an "example" test to ensure the output is correct
 
