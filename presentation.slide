@@ -332,14 +332,10 @@ believe it or not, it's pronounced "`fumpt`"
 - %T = print the type of the variable
 - %t = print a Boolean value as true or false
 
-[//]: #  -edit printf2.go /START OMIT/,/END OMIT/
-
 * fmt.Sprintf
 
 - "print" into a string, rather than to the screen
 - also `Sprint` and `Sprintln`
-
-[//]: #  -edit sprintf.go
 
 * Logging
 
@@ -358,8 +354,6 @@ _much_ _better_ than fmt, but somewhat lacking as loggers go
 - also consider loggo (https://godoc.org/github.com/juju/loggo)
 
 * Simple Logging Example
-
-[//]: #  logging.go
 
 * Packages
 
@@ -425,8 +419,6 @@ Source files for the `rand` package are prefaced with
 - ...and the Go compiler has no warnings
 - you may be annoyed by this, but the Go team explains it well...
 
-[//]: #  unused.go
-
 .link https://play.golang.org/p/OzTo_vd9ADo view in playground
 
 * Possibly Painful Pedantry? (cont'd)
@@ -444,8 +436,6 @@ Nowadays, most Go programmers use a tool, `goimports`, which automatically rewri
 - introduced with `func` keyword
 - accept any number of arguments, return any number of values
 
-[//]: #  func.go /START OMIT/,/END OMIT/
-
 * main Function
 - as we've seen, the main program must be inside a function called `main`
 - this function takes no arguments and returns nothing...
@@ -460,8 +450,6 @@ Nowadays, most Go programmers use a tool, `goimports`, which automatically rewri
 - unlike Python, types must of course be specified
 - the blank identifier `_` can be used to discard a value (also like Python)
 
-[//]: #  multiple.go
-
 * Exercise: Functions
 
 - write a function called `circleinfo` which accepts a float64 radius and returns two values, the area of the circle, and the circumference
@@ -473,8 +461,6 @@ Nowadays, most Go programmers use a tool, `goimports`, which automatically rewri
 - you can name the return values
 - you still need a `return` statement
 - *EDIT* *THE* *CODE* to remove the named return values and be sure it still runs properly
-
-[//]: #  -edit named.go
 
 * Builtin Functions
 
@@ -489,12 +475,8 @@ Nowadays, most Go programmers use a tool, `goimports`, which automatically rewri
 - they still may be referred to
 - often called lambda functions in other languages
 
-[//]: #  anonymous.go /START OMIT/,/END OMIT/
-
 * Anonymous Functions (cont'd)
 - functions are first class objects, that is, they can be assigned to variables as well as passed in to other functions
-
-[//]: #  anonymous2.go /START OMIT/,/END OMIT/
 
 * init Function
 
@@ -510,15 +492,11 @@ Nowadays, most Go programmers use a tool, `goimports`, which automatically rewri
 
 * init Function (cont'd)
 
-[//]: #  init.go
-
 * Calling Functions
 
 - Golang is pass-by-value ONLY (like C, which was a starting point of sorts)
 
 - that means if you pass a variable or other object to a function, the function cannot change the variable/object because it receives a copy of it
-
-[//]: #  passbyvalue.go
 
 * How to Modify Parameters to a Function?
 
@@ -530,13 +508,9 @@ Nowadays, most Go programmers use a tool, `goimports`, which automatically rewri
 
 * Pointers
 
-[//]: #  pointer.go
-
 - now let's revisit our earlier attempt to have a function change its parameter, but this time we'll use pointers...
 
 * Pointers (cont'd)
-
-[//]: #  -edit passbyvalue2.go
 
 - (of course we wouldn't use the intermediate variable `ptr_to_val`, it's there for instructive purposes)
 
