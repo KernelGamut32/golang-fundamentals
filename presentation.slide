@@ -392,7 +392,7 @@ Source files for the `rand` package are prefaced with
 - packages can be given a nickname in the event of a name collision (two packages with the same name)
 - you can import a package such that you don't need to use the package name prefix when accessing functions and data inside the package (not recommended)
 
-.code package.go
+ package.go
 
 * Packages: Identifiers Beginning with Upper Case Letters are Exported 
 
@@ -400,7 +400,7 @@ Source files for the `rand` package are prefaced with
 - if you want something to be public, start its name with an upper case letter
 - no public or private keyword
 
-.code example.go
+ example.go
 
 * Exercise: Packages
 
@@ -464,7 +464,7 @@ Nowadays, most Go programmers use a tool, `goimports`, which automatically rewri
 - we've alread seen `print` and `println`
 - `complex`, `real`, and `imag` are for imaginary numbers
 
-.code builtin.go
+ builtin.go
 
 * Anonymous Functions
 - functions that live in memory, but have no name
@@ -529,7 +529,7 @@ Write a function `doubler` which takes a string argument and doubles it, i.e., "
 - `os.Args` is an array of strings that we can inspect
 - we can't run these in the playground–we need to compile and run locally, then pass command-line args
 
-.code clargs.go
+ clargs.go
 
 * Exercise: Command Line Args
 
@@ -542,20 +542,20 @@ Write a function `doubler` which takes a string argument and doubles it, i.e., "
 - as with the previous examples, we can't run these examples in the playground, since they require keyboard input
 - let's start with `Scanln`, which reads until a newline is seen (but spaces count as newlines here)
 
-.code input.go
+ input.go
 
 * fmt.Scan
 - read from standard input, storing successive space-separated values into successive arguments
 - newlines count as space
 
-.code input2.go
+ input2.go
 
 * fmt.Scanf
 - reads text from standard input, storing successive space-separated values into successive arguments as determined by the format string
 - newlines in the input must match newlines in the format
 - one exception: the verb %c always scans the next char in the input, even if it is a space (or tab etc.) or newline
 
-.code input3.go
+ input3.go
 
 * Control Structures
 
@@ -700,7 +700,7 @@ Write a function which implements the Collatz Conjecture:
 
 * goto Statement: Cleanly Exiting a Function (example)
 
-.code goto.go
+ goto.go
 
 * break with a Label
 
@@ -1052,14 +1052,14 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 
 - here a method to compute the perimeter of a triangle...
 
-.code method2.go
+ method2.go
 
 - notice that the function (or method) above has a different syntax
 - the above is a _method_, and the _method_ _receiver_ (the type that the method acts upon) appears in its own argument list between the `func` keyword and the method name
 
 - here's a method to compute the area of a triangle using Heron's formula...
 
-.code method1.go
+ method1.go
 
 * Methods (cont'd)
 
@@ -1071,7 +1071,7 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 
 - if we want to be able to modify the struct, our method will have to accept a pointer receiver
 
-.code method3.go
+ method3.go
 
 - we generally want all of our methods to receive either a pointer or a type, rather than having a mix of receiver types, but this will not be obvious until we know a bit more...
 
@@ -1141,7 +1141,7 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 - that is, we want a method in the embedding type to have the same name as a method in the embedded type
 - the method in `Mountain` will be "overriden" by the method in `Climb`
 
-.code embed2.go /START OMIT/,/END OMIT/
+ embed2.go /START OMIT/,/END OMIT/
 
 * Overloading (cont'd)
 
@@ -1153,13 +1153,13 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 - hiding implementation details when an interface to user-defined types is provided
 - as a simple example, let's consider a singleton object (i.e., only one copy of the object exists at any given time)
 
-.code thing.go
+ thing.go
 
 * Encapsulation (cont'd)
 
 - via encapsulation, we can manipulate the singleton object, but can't see its implementation
 - the package writer could change the implementation and as long as the same API was exposed, everything would still work
-.code encapsulation.go
+ encapsulation.go
  
 * Interfaces
 - an interface is a type, defined by a set of methods
@@ -1249,7 +1249,7 @@ here's a generic measure function which works on any geometry
 - if the value inside the interface is nil, the method will be called with a nil receiver
 - in some languages this would yield a null pointer exception–it's common in Go to write methods that handle being called with a nil receiver
 
-.code interfacevalnil.go /START OMIT/,/END OMIT/
+ interfacevalnil.go /START OMIT/,/END OMIT/
 
 * Interface Values with nil Underlying Value (cont'd)
 [//]: #  -edit interfacevalnil.go /START2 OMIT/,/END2 OMIT/
@@ -1416,7 +1416,7 @@ know when to panic:
 
 * More Reading Files
 
-.code read2.go /START OMIT/,/END OMIT/
+ read2.go /START OMIT/,/END OMIT/
 
 * More Reading Files (cont'd)
 
@@ -1513,7 +1513,7 @@ Go includes low-level concurrency primitives as well, but you often need not con
 
 * Gouroutines (cont'd)
 - another example...run directly, not in playground
-.code goroutine2.go
+ goroutine2.go
 
 * Channels
 - typed "conduits" through which you can send and receive data using the channel operator `<-`
@@ -1636,8 +1636,6 @@ we need to be able to time out if
  var writeOps uint64           // ...and write operations we do
 
 * Mutual Exclusion (cont'd)
-
-.code mutex.go
 
 * Mutual Exclusion (cont'd)
 
