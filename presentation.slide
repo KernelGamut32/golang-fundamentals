@@ -129,18 +129,18 @@ Fun–Programming with Go should be fun!
 
 3. Create workspace dir `$HOME/go` (or set `$GOPATH` to use a different location)
 
-4. Create the directory `../src/hello` inside your workspace
+4. Create the directory `./src/hello` inside your workspace
 
 5. Inside that directory create a file `hello.go` containing the following (OK to copy/paste)
 
-.play ../src/hello.go
+.play ./src/hello.go
 
 - click the `Run` button above and on any slide which has that button
 
 
 * Compiling/Running
 
-1. cd $HOME/go/../src/hello
+1. cd $HOME/go/./src/hello
 
 2. go build
 
@@ -258,7 +258,7 @@ single line initialization
 
 - inside a function, the shorthand `:=` can be used
 
-.play ../src/ranveer.go /START OMIT/,/END OMIT/
+.play ./src/ranveer.go /START OMIT/,/END OMIT/
 
 - outside functions, everything begins with a keyword (`var`, `func`, etc.) and the `:=` shorthand is not available
 
@@ -285,13 +285,13 @@ single line initialization
 
 - `iota` is a predeclared identifier that represents successive untyped integer constants
 
-.play ../src/constants.go /START OMIT/,/END OMIT/
+.play ./src/constants.go /START OMIT/,/END OMIT/
 
 * Constants (cont'd)
 
 - `iota` can be used in expressions so you can do things like this
 
-.play ../src/iota.go /START OMIT/,/END OMIT/
+.play ./src/iota.go /START OMIT/,/END OMIT/
 
 - 1 << 10 = 0b1000000000 = 2^10 = 1024
 
@@ -307,7 +307,7 @@ single line initialization
 
 - *EDIT* *THE* *CODE* to fix the problem after running the below and identifying the problem
 
-.play -edit ../src/typefunc.go /START OMIT/,/END OMIT/
+.play -edit ./src/typefunc.go /START OMIT/,/END OMIT/
 
 * Converting to/from Strings
 .link https://golang.org/pkg/strconv strconv package
@@ -333,21 +333,21 @@ believe it or not, it's pronounced "`fumpt`"
 - %d = print an integer value
 - %f = print a float value
 
-.play -edit ../src/printf.go /START OMIT/,/END OMIT/
+.play -edit ./src/printf.go /START OMIT/,/END OMIT/
 
 * fmt.Printf (cont'd)
 - %v = print the value in a default format
 - %T = print the type of the variable
 - %t = print a Boolean value as true or false
 
-.play -edit ../src/printf2.go /START OMIT/,/END OMIT/
+.play -edit ./src/printf2.go /START OMIT/,/END OMIT/
 
 * fmt.Sprintf
 
 - "print" into a string, rather than to the screen
 - also `Sprint` and `Sprintln`
 
-.play -edit ../src/sprintf.go
+.play -edit ./src/sprintf.go
 
 * Logging
 
@@ -367,7 +367,7 @@ _much_ _better_ than fmt, but somewhat lacking as loggers go
 
 * Simple Logging Example
 
-.play ../src/logging.go
+.play ./src/logging.go
 
 * Packages
 
@@ -396,7 +396,7 @@ Source files for the `rand` package are prefaced with
 
  package rand
  
-.link https://github.com/golang/go/blob/master/../src/math/rand/rand.go Click here to view source code
+.link https://github.com/golang/go/blob/master/./src/math/rand/rand.go Click here to view source code
 
 * The main Package
 
@@ -410,7 +410,7 @@ Source files for the `rand` package are prefaced with
 - packages can be given a nickname in the event of a name collision (two packages with the same name)
 - you can import a package such that you don't need to use the package name prefix when accessing functions and data inside the package (not recommended)
 
-.code ../src/package.go
+.code ./src/package.go
 
 * Packages: Identifiers Beginning with Upper Case Letters are Exported 
 
@@ -418,7 +418,7 @@ Source files for the `rand` package are prefaced with
 - if you want something to be public, start its name with an upper case letter
 - no public or private keyword
 
-.code ../src/example.go
+.code ./src/example.go
 
 * Exercise: Packages
 
@@ -433,7 +433,7 @@ Source files for the `rand` package are prefaced with
 - ...and the Go compiler has no warnings
 - you may be annoyed by this, but the Go team explains it well...
 
-.play ../src/unused.go
+.play ./src/unused.go
 
 .link https://play.golang.org/p/OzTo_vd9ADo view in playground
 
@@ -452,7 +452,7 @@ Nowadays, most Go programmers use a tool, `goimports`, which automatically rewri
 - introduced with `func` keyword
 - accept any number of arguments, return any number of values
 
-.play ../src/func.go /START OMIT/,/END OMIT/
+.play ./src/func.go /START OMIT/,/END OMIT/
 
 * main Function
 - as we've seen, the main program must be inside a function called `main`
@@ -468,7 +468,7 @@ Nowadays, most Go programmers use a tool, `goimports`, which automatically rewri
 - unlike Python, types must of course be specified
 - the blank identifier `_` can be used to discard a value (also like Python)
 
-.play ../src/multiple.go
+.play ./src/multiple.go
 
 * Exercise: Functions
 
@@ -482,7 +482,7 @@ Nowadays, most Go programmers use a tool, `goimports`, which automatically rewri
 - you still need a `return` statement
 - *EDIT* *THE* *CODE* to remove the named return values and be sure it still runs properly
 
-.play -edit ../src/named.go
+.play -edit ./src/named.go
 
 * Builtin Functions
 
@@ -490,19 +490,19 @@ Nowadays, most Go programmers use a tool, `goimports`, which automatically rewri
 - we've alread seen `print` and `println`
 - `complex`, `real`, and `imag` are for imaginary numbers
 
-.code ../src/builtin.go
+.code ./src/builtin.go
 
 * Anonymous Functions
 - functions that live in memory, but have no name
 - they still may be referred to
 - often called lambda functions in other languages
 
-.play ../src/anonymous.go /START OMIT/,/END OMIT/
+.play ./src/anonymous.go /START OMIT/,/END OMIT/
 
 * Anonymous Functions (cont'd)
 - functions are first class objects, that is, they can be assigned to variables as well as passed in to other functions
 
-.play ../src/anonymous2.go /START OMIT/,/END OMIT/
+.play ./src/anonymous2.go /START OMIT/,/END OMIT/
 
 * init Function
 
@@ -518,7 +518,7 @@ Nowadays, most Go programmers use a tool, `goimports`, which automatically rewri
 
 * init Function (cont'd)
 
-.play ../src/init.go
+.play ./src/init.go
 
 * Calling Functions
 
@@ -526,7 +526,7 @@ Nowadays, most Go programmers use a tool, `goimports`, which automatically rewri
 
 - that means if you pass a variable or other object to a function, the function cannot change the variable/object because it receives a copy of it
 
-.play ../src/passbyvalue.go
+.play ./src/passbyvalue.go
 
 * How to Modify Parameters to a Function?
 
@@ -538,13 +538,13 @@ Nowadays, most Go programmers use a tool, `goimports`, which automatically rewri
 
 * Pointers
 
-.play ../src/pointer.go
+.play ./src/pointer.go
 
 - now let's revisit our earlier attempt to have a function change its parameter, but this time we'll use pointers...
 
 * Pointers (cont'd)
 
-.play -edit ../src/passbyvalue2.go
+.play -edit ./src/passbyvalue2.go
 
 - (of course we wouldn't use the intermediate variable `ptr_to_val`, it's there for instructive purposes)
 
@@ -559,7 +559,7 @@ Write a function `doubler` which takes a string argument and doubles it, i.e., "
 
 * Functions as Arguments
 
-.play ../src/funcasarg.go
+.play ./src/funcasarg.go
 
 * Getting Input from the User 
 
@@ -569,7 +569,7 @@ Write a function `doubler` which takes a string argument and doubles it, i.e., "
 - `os.Args` is an array of strings that we can inspect
 - we can't run these in the playground–we need to compile and run locally, then pass command-line args
 
-.code ../src/clargs.go
+.code ./src/clargs.go
 
 * Exercise: Command Line Args
 
@@ -582,20 +582,20 @@ Write a function `doubler` which takes a string argument and doubles it, i.e., "
 - as with the previous examples, we can't run these examples in the playground, since they require keyboard input
 - let's start with `Scanln`, which reads until a newline is seen (but spaces count as newlines here)
 
-.code ../src/input.go
+.code ./src/input.go
 
 * fmt.Scan
 - read from standard input, storing successive space-separated values into successive arguments
 - newlines count as space
 
-.code ../src/input2.go
+.code ./src/input2.go
 
 * fmt.Scanf
 - reads text from standard input, storing successive space-separated values into successive arguments as determined by the format string
 - newlines in the input must match newlines in the format
 - one exception: the verb %c always scans the next char in the input, even if it is a space (or tab etc.) or newline
 
-.code ../src/input3.go
+.code ./src/input3.go
 
 * Control Structures
 
@@ -604,49 +604,49 @@ Write a function `doubler` which takes a string argument and doubles it, i.e., "
 - braces always required
 - else clause is of course optional
 
-.play -edit ../src/if.go
+.play -edit ./src/if.go
 
 * compound if statement
 - a statement can precede conditionals
 - any variables declared in this statement are available in all branches
 - very idiomatic in Golang
 
-.play -edit ../src/if2.go /START OMIT/,/END OMIT/
+.play -edit ./src/if2.go /START OMIT/,/END OMIT/
 
 * switch Statement
 - express conditionals across many branches
 - no parens
 - simplest form...
 
-.play -edit ../src/switch.go /START OMIT/,/END OMIT/
+.play -edit ./src/switch.go /START OMIT/,/END OMIT/
 
 * switch: Match Against Multiple Expressions
 
-.play -edit ../src/switch2.go
+.play -edit ./src/switch2.go
 
 * switch: Invoke a Function
 
-.play -edit ../src/switch3.go
+.play -edit ./src/switch3.go
 
 * switch: Condition Omitted
 
 - condition can be omitted altogether, simulating an if
 - ...or think of it as switch true
 
-.play -edit ../src/switch4.go /START OMIT/,/END OMIT/
+.play -edit ./src/switch4.go /START OMIT/,/END OMIT/
 
 * switch: Regular Expressions
 
 - if you want to match a particular pattern, you can use Golang's regular expression package in conjunction with having `switch` call a function
 
-.play -edit ../src/switch5.go /START OMIT/,/END OMIT/
+.play -edit ./src/switch5.go /START OMIT/,/END OMIT/
 
 * switch: fallthrough
 
 - in C, each branch of a switch statement must be terminated with a `break` statement, or else execution will "fall through" to the next branch–WITHOUT RUNNING THE TEST–after a branch is executed
 - in Go, if you want to fall through, you must explicitly state it
 
-.play -edit ../src/switch6.go /START OMIT/,/END OMIT
+.play -edit ./src/switch6.go /START OMIT/,/END OMIT
 
 * Exercise: Fizzbuzz
 
@@ -671,7 +671,7 @@ Go only has one looping construct
 
 - as in C/C++/Java, you can have empty pre and post statements
 
-.play -edit ../src/for.go /START OMIT/,/END OMIT
+.play -edit ./src/for.go /START OMIT/,/END OMIT
 
 * Exercise: for Loops
 
@@ -691,11 +691,11 @@ OR: implement the factorial function, n! = n * (n - 1) * ... * 1
 
 * for Loop: Empty Pre Statement
 
-.play -edit ../src/for2.go
+.play -edit ./src/for2.go
 
 * for loop as while loop
 
-.play -edit ../src/for3.go
+.play -edit ./src/for3.go
 
 * Exercise: for Loop as while Loop
 
@@ -715,7 +715,7 @@ Write a function which implements the Collatz Conjecture:
 
 - as we are no doubt used to from other languages, we can break out of the enclosing loop with the keyword `break` 
 
-.play -edit ../src/for4.go /START OMIT/,/END OMIT/
+.play -edit ./src/for4.go /START OMIT/,/END OMIT/
 
 * Exercise: for Loop as Infinite Loop
 
@@ -731,7 +731,7 @@ Write a function which implements the Collatz Conjecture:
 - you don't really need continue, since any code written with a continue can be written without one
 - they can be handy in cases where you don't want to execute the loop until you've checked some error conditions
 
-.play -edit ../src/continue.go
+.play -edit ./src/continue.go
 
 * goto ("Considered Harmful")
 
@@ -756,17 +756,17 @@ Write a function which implements the Collatz Conjecture:
 
 * goto Statement: Cleanly Exiting a Function (example)
 
-.code ../src/goto.go
+.code ./src/goto.go
 
 * break with a Label
 
 - useful inside multiple nested loops
 
-.play -edit ../src/breaklabel.go
+.play -edit ./src/breaklabel.go
 
 * continue with a Label
 
-.play -edit ../src/continuelabel.go
+.play -edit ./src/continuelabel.go
 
 * defer
 `defer` pushes a function call onto a stack, and the saved calls are executed just prior to the surrounding function returning
@@ -781,7 +781,7 @@ three rules
 
 - deferred functions may read/assign to the returning function's named return values
 
-.play -edit ../src/defer.go /START OMIT/,/END OMIT/
+.play -edit ./src/defer.go /START OMIT/,/END OMIT/
 
 * Exercise: defer
 
@@ -802,7 +802,7 @@ three rules
 
 * panic (cont'd)
 
-.play -edit ../src/deferpluspanic.go
+.play -edit ./src/deferpluspanic.go
 
 * recover 
 - built-in function that regains control of a panicking goroutine
@@ -812,7 +812,7 @@ three rules
 - let's add `recover()` to previous example...
 
 * recover (cont'd)
-.play -edit ../src/deferpluspanicplusrecover.go /START OMIT/,/END OMIT/
+.play -edit ./src/deferpluspanicplusrecover.go /START OMIT/,/END OMIT/
 
 * Exercise: panic/recover
 
@@ -838,7 +838,7 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 
 * Scope Example
 
-.play -edit ../src/scope.go
+.play -edit ./src/scope.go
 
 * Data Structures
 
@@ -848,26 +848,26 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 - zero-valued by default
 - brittle, but still useful
 
-.play -edit ../src/array.go /START OMIT/,/END OMIT/
+.play -edit ./src/array.go /START OMIT/,/END OMIT/
 
 * Arrays (cont'd)
 
 - can be initialized when declared
 
-.play -edit ../src/array2.go /START OMIT/,/END OMIT/
+.play -edit ./src/array2.go /START OMIT/,/END OMIT/
 
 * Arrays (cont'd)
 
 - no need to specify size when initializing
 
-.play -edit ../src/array3.go /START OMIT/,/END OMIT/
+.play -edit ./src/array3.go /START OMIT/,/END OMIT/
 
 * 2-D Arrays
 
 - array of arrays
 - each row is a 1-D array
 
-.play -edit ../src/array4.go /START OMIT/,/END OMIT/
+.play -edit ./src/array4.go /START OMIT/,/END OMIT/
 
 * Slices
 - key datatype in Go
@@ -875,19 +875,19 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 - slices are typed only by elements they contain (not number of elements)
 - to create an empty slice with non-zero length, use builtin `make` function
 
-.play -edit ../src/slice.go /START OMIT/,/END OMIT/
+.play -edit ./src/slice.go /START OMIT/,/END OMIT/
 
 * Slices: append()
 - `append()` returns a new slice containing appended items
 - Why is the syntax of `append()` the way it is?
 
-.play -edit ../src/slice2.go /START OMIT/,/END OMIT
+.play -edit ./src/slice2.go /START OMIT/,/END OMIT
 
 * Slicing Slices
 
 - slices (and arrays) support a slicing operator (much like Python)
 
-.play -edit ../src/slice3.go /START OMIT/,/END OMIT/
+.play -edit ./src/slice3.go /START OMIT/,/END OMIT/
 
 * What does slice our look like?
 
@@ -902,13 +902,13 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 - if we want to make a copy of a slice we need to use the `copy()` function
 - ...but first we need to make a new slice to receive the copy
 
-.play -edit ../src/slice4.go /START OMIT/,/END OMIT/
+.play -edit ./src/slice4.go /START OMIT/,/END OMIT/
 
 * Slices without make()
 
 - we can declare a slice inline, without using `make()`
 
-.play -edit ../src/slice5.go /START OMIT/,/END OMIT/
+.play -edit ./src/slice5.go /START OMIT/,/END OMIT/
 
 * Slices vs. Arrays
 - an array type definition specifies both length and element type
@@ -952,7 +952,7 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 - a nil slice has a length and capacity of 0, but has no underlying array
 - a nil slice is not the same as an empty slice, which have an underlying array of size 0
 
-.play -edit ../src/slicenil.go /START OMIT/,/END OMIT/
+.play -edit ./src/slicenil.go /START OMIT/,/END OMIT/
 
 * Exercise: Slices
 
@@ -974,12 +974,12 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 3. write a function counter which accepts a slice of strings and returns a new slice of the strings which contains 3 or more e's
 - check out the `strings` package
 
-.play -edit ../src/variadic.go /START OMIT/,/END OMIT/
+.play -edit ./src/variadic.go /START OMIT/,/END OMIT/
 
 * Variadic Functions (cont'd)
 - if you already have the args in a slice, you can pass them as individual args using the ... notation
 
-.play -edit ../src/variadic2.go /START OMIT/,/END OMIT/
+.play -edit ./src/variadic2.go /START OMIT/,/END OMIT/
 
 * Exercise: Variadic Functions
 
@@ -993,42 +993,42 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 - key/value pairs
 - a missing key does not cause an error (as it does in Python)
 
-.play -edit ../src/map.go /START OMIT/,/END OMIT/
+.play -edit ./src/map.go /START OMIT/,/END OMIT/
 
 * Maps (cont'd)
 - we can also create an empty map and add to it later
 - `len()` returns size of map (number of key/value pairs)
 - `delete()` deletes items from a map
 
-.play -edit ../src/map2.go /START OMIT/,/END OMIT/
+.play -edit ./src/map2.go /START OMIT/,/END OMIT/
 
 * range
 - range iterates over elements in a variety of data structures
 
-.play -edit ../src/range.go /START OMIT/,/END OMIT/
+.play -edit ./src/range.go /START OMIT/,/END OMIT/
 
 - if we don't need the index...
 
-.play -edit ../src/range2.go /START OMIT/,/END OMIT/
+.play -edit ./src/range2.go /START OMIT/,/END OMIT/
 
 * range on a Map
 
 - ...iterates over key/value pairs
 
-.play -edit ../src/range3.go /START OMIT/,/END OMIT/
+.play -edit ./src/range3.go /START OMIT/,/END OMIT/
 
 * range on a Map (cont'd)
 
 - ...or just over the keys
 
-.play -edit ../src/range4.go /START OMIT/,/END OMIT/
+.play -edit ./src/range4.go /START OMIT/,/END OMIT/
 
 * range on a string...
 - ...iterates over Unicode code points
 - the first value is the starting byte index of the rune
 - the second value is the rune itself
 
-.play -edit ../src/range5.go /START OMIT/,/END OMIT/
+.play -edit ./src/range5.go /START OMIT/,/END OMIT/
 
 * Exercise: Maps
 - use a map to translate Roman numerals into their Arabic equivalents
@@ -1050,7 +1050,7 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 - methods are specific to builtin type
 - sorting occurs in place
 
-.play -edit ../src/sort.go /START OMIT/,/END OMIT/
+.play -edit ./src/sort.go /START OMIT/,/END OMIT/
 
 * User-Defined Types
 
@@ -1058,7 +1058,7 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 - typed collections of fields
 - useful for grouping data together (like structs in other languages)
 
-.play -edit ../src/struct.go /START OMIT/,/END OMIT/
+.play -edit ./src/struct.go /START OMIT/,/END OMIT/
 
 * struct (cont'd)
 - you can name the fields when initializing a struct
@@ -1066,7 +1066,7 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 - & operator yields a pointer to the struct
 - use a dot to access the fields
 
-.play -edit ../src/struct2.go /START OMIT/,/END OMIT/
+.play -edit ./src/struct2.go /START OMIT/,/END OMIT/
 
 * Anonymous struct
 - why an anonymous struct?
@@ -1108,39 +1108,39 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 
 - here a method to compute the perimeter of a triangle...
 
-.code ../src/method2.go
+.code ./src/method2.go
 
 - notice that the function (or method) above has a different syntax
 - the above is a _method_, and the _method_ _receiver_ (the type that the method acts upon) appears in its own argument list between the `func` keyword and the method name
 
 - here's a method to compute the area of a triangle using Heron's formula...
 
-.code ../src/method1.go
+.code ./src/method1.go
 
 * Methods (cont'd)
 
 - to call a method on an object, we use a dotted notation common to object-oriented languages: _object.method(...)_
 
-.play -edit ../src/method.go /START OMIT/,/END OMIT/
+.play -edit ./src/method.go /START OMIT/,/END OMIT/
 
 * Methods (cont'd)
 
 - if we want to be able to modify the struct, our method will have to accept a pointer receiver
 
-.code ../src/method3.go
+.code ./src/method3.go
 
 - we generally want all of our methods to receive either a pointer or a type, rather than having a mix of receiver types, but this will not be obvious until we know a bit more...
 
 * Methods (cont'd)
 
-.play -edit ../src/method4.go /START OMIT/,/END OMIT/
+.play -edit ./src/method4.go /START OMIT/,/END OMIT/
 
 * Defining Methods on Other Types
 - you can define methods on any type in your package (not just `struct`)
 - you can't define a method on a type from another package
 - you can't define a method on a basic type, but you can create your own type via Go's type extensibility
 
-.play -edit ../src/stringmethod.go /START OMIT/,/END OMIT/
+.play -edit ./src/stringmethod.go /START OMIT/,/END OMIT/
 
 *EDIT* *THE* *CODE* so that the Uppercase method takes a parameter _suffix_, which is appended to the end of the string
 
@@ -1170,7 +1170,7 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 
 - we can initialize a Climb in two ways, the first of which demonstrates the promotion of the fields from the embedded Mountain:
 
-.play -edit ../src/embed.go /START OMIT/,/END OMIT/
+.play -edit ./src/embed.go /START OMIT/,/END OMIT/
 
 - in addition to promotion of the fields, the methods of the embedded structs are also promoted...
 
@@ -1178,13 +1178,13 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 
 - let's make a silly method for Mountains called `HowBig()`
 
-.play -edit ../src/method5.go /START OMIT/,/END OMIT/
+.play -edit ./src/method5.go /START OMIT/,/END OMIT/
 
 * Embedding (cont'd)
 
 - now we'll demonstrate the object of type Climb can invoke the `HowBig()` method
 
-.play -edit ../src/method6.go /START OMIT/,/END OMIT/
+.play -edit ./src/method6.go /START OMIT/,/END OMIT/
 
 * Exercise: Embedding
 - create a `Customer` type in your `Bank` package
@@ -1197,25 +1197,25 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 - that is, we want a method in the embedding type to have the same name as a method in the embedded type
 - the method in `Mountain` will be "overriden" by the method in `Climb`
 
-.code ../src/embed2.go /START OMIT/,/END OMIT/
+.code ./src/embed2.go /START OMIT/,/END OMIT/
 
 * Overloading (cont'd)
 
 - ...but we can access the overriden method by referring to it explicitly
 
-.play -edit ../src/embed3.go /START OMIT/,/END OMIT/
+.play -edit ./src/embed3.go /START OMIT/,/END OMIT/
 
 * Encapsulation
 - hiding implementation details when an interface to user-defined types is provided
 - as a simple example, let's consider a singleton object (i.e., only one copy of the object exists at any given time)
 
-.code ../src/thing.go
+.code ./src/thing.go
 
 * Encapsulation (cont'd)
 
 - via encapsulation, we can manipulate the singleton object, but can't see its implementation
 - the package writer could change the implementation and as long as the same API was exposed, everything would still work
-.code ../src/encapsulation.go
+.code ./src/encapsulation.go
  
 * Interfaces
 - an interface is a type, defined by a set of methods
@@ -1223,7 +1223,7 @@ while the identifier of the inner declaration is in scope, it denotes the entity
 - to implement an interface, we implement all methods in the interface
 - we don't need to tell the compiler we are implementing an interface–the compiler figures that out automatically
 
-.play ../src/interface.go /START OMIT/,/END OMIT/
+.play ./src/interface.go /START OMIT/,/END OMIT/
 
 * Interfaces (cont'd)
 
@@ -1272,7 +1272,7 @@ here's a generic measure function which works on any geometry
 
 * Interfaces (cont'd)
 
-.play -edit ../src/measure.go /START OMIT/,/END OMIT/
+.play -edit ./src/measure.go /START OMIT/,/END OMIT/
 
 * Interface Values
 - under the hood, interface values can be thought of as a tuple of a value and a concrete type: (value, type)
@@ -1299,32 +1299,32 @@ here's a generic measure function which works on any geometry
  }
 
 * Interface Values (cont'd)
-.play -edit ../src/interfaceval.go /START OMIT/,/END OMIT/
+.play -edit ./src/interfaceval.go /START OMIT/,/END OMIT/
 
 * Interface Values with nil Underlying Value
 - if the value inside the interface is nil, the method will be called with a nil receiver
 - in some languages this would yield a null pointer exception–it's common in Go to write methods that handle being called with a nil receiver
 
-.code ../src/interfacevalnil.go /START OMIT/,/END OMIT/
+.code ./src/interfacevalnil.go /START OMIT/,/END OMIT/
 
 * Interface Values with nil Underlying Value (cont'd)
-.play -edit ../src/interfacevalnil.go /START2 OMIT/,/END2 OMIT/
+.play -edit ./src/interfacevalnil.go /START2 OMIT/,/END2 OMIT/
 
 * nil Interface Value
 
 - a nil interface value holds neither value nor type
 - calling a method on a nil interface is a run-time error
 
-.play -edit ../src/nilinterface.go /START OMIT/,/END OMIT/
+.play -edit ./src/nilinterface.go /START OMIT/,/END OMIT/
 
-# .play ../src/variadic.go /START OMIT/,/END OMIT/
+# .play ./src/variadic.go /START OMIT/,/END OMIT/
 
 * The Empty Interface
 - the interface type that specifies zero methods is known as the empty interface: `interface{}`
 - an empty interface may hold values of any type, since every type implements at least zero methods
 - use case–code that handles values of unknown type (e.g., `fmt.Println` takes any number of arguments of type `interface{}`)
 
-.play -edit ../src/empty.go /START OMIT/,/END OMIT/
+.play -edit ./src/empty.go /START OMIT/,/END OMIT/
 
 * Type Assertions
 - a type assertion provides access to an interface value's underlying concrete value
@@ -1343,13 +1343,13 @@ here's a generic measure function which works on any geometry
 
 * Type Assertions (cont'd)
 
-.play -edit ../src/type.go
+.play -edit ./src/type.go
 
 * Type switch
 - a switch construct that permits several type assertions in series
 - like a regular switch statement, but the cases in a type switch specify types (not values), and those values are compared against the type of the value held by the given interface value
 
-.play -edit ../src/typeswitch.go /START OMIT/,/END OMIT/
+.play -edit ./src/typeswitch.go /START OMIT/,/END OMIT/
 
 * Stringers
 
@@ -1362,7 +1362,7 @@ here's a generic measure function which works on any geometry
 - a type that can describe itself as a string
 - the `fmt` package (and many others) look for this interface to print values
 
-.play -edit ../src/stringer.go /START OMIT/,/END OMIT/
+.play -edit ./src/stringer.go /START OMIT/,/END OMIT/
 
 * Exercise: Stringers
 
@@ -1416,17 +1416,17 @@ here's a generic measure function which works on any geometry
 
 * Error Handling (cont'd)
 
-.play -edit ../src/error.go /START OMIT/,/END2 OMIT/
+.play -edit ./src/error.go /START OMIT/,/END2 OMIT/
 
 * Error Handling (cont'd)
 - we can create our own error type, perhaps adding a timestamp, as long as we implement the error interface
 
-.play -edit ../src/error2.go /START OMIT/,/END OMIT/
+.play -edit ./src/error2.go /START OMIT/,/END OMIT/
 
 * Error Handling (cont'd)
 - if you need to access the data in a custom error, you need to use type assertion in order to get the error as an instance of your custom error:
 
-.play -edit ../src/error3.go /START OMIT/,/END OMIT/
+.play -edit ./src/error3.go /START OMIT/,/END OMIT/
 
 * Exercise : Error Handling
 - modify your square root (or Withdraw) function from earlier to return a custom error as well as the existing return value
@@ -1464,25 +1464,25 @@ know when to panic:
 # (cont'd)
 - here's an example using the `os` package to read from `/etc/passwd`
 
-.play -edit ../src/read.go /START OMIT/,/END OMIT/
+.play -edit ./src/read.go /START OMIT/,/END OMIT/
 
 * Writing Files
 
-.play -edit ../src/write.go /START OMIT/,/END OMIT/
+.play -edit ./src/write.go /START OMIT/,/END OMIT/
 
 * More Reading Files
 
-.code ../src/read2.go /START OMIT/,/END OMIT/
+.code ./src/read2.go /START OMIT/,/END OMIT/
 
 * More Reading Files (cont'd)
 
-.play -edit ../src/read2.go /START2 OMIT/,/END2 OMIT/
+.play -edit ./src/read2.go /START2 OMIT/,/END2 OMIT/
 
 * Reading a Text File Line by Line
 - easiest to use a `Scanner` in the `bufio` package
 - substitute `os.Stdin` to read from standard input
 
-.play -edit ../src/scan.go /START OMIT/,/END OMIT/
+.play -edit ./src/scan.go /START OMIT/,/END OMIT/
 
 * Exercise: Reading from Files
 - write a Go program to read a file and count the number of occurrences of each word in the file
@@ -1565,11 +1565,11 @@ Go includes low-level concurrency primitives as well, but you often need not con
 - a lightweight thread of execution (not an actual OS thread)
 - invoked by keyword go preceding a function call (or anonymous function)
 
-.play -edit ../src/goroutine.go
+.play -edit ./src/goroutine.go
 
 * Gouroutines (cont'd)
 - another example...run directly, not in playground
-.code ../src/goroutine2.go
+.code ./src/goroutine2.go
 
 * Channels
 - typed "conduits" through which you can send and receive data using the channel operator `<-`
@@ -1577,7 +1577,7 @@ Go includes low-level concurrency primitives as well, but you often need not con
 - create a new channel using built-in function `make()`
 - sending and receiving are blocking operations
 
-.play -edit ../src/channel.go /START OMIT/,/END OMIT/
+.play -edit ./src/channel.go /START OMIT/,/END OMIT/
 
 * Exercise: Relay Race
 - write a program to simulate a relay race with 4 runners
@@ -1590,36 +1590,36 @@ Go includes low-level concurrency primitives as well, but you often need not con
 - channels are unbuffered by default, i.e., they only accept a send operation if there is a corresponding receive operation ready to receive the data
 - buffered channels receive and hold send ops without a corresponding receiver
 
-.play -edit ../src/channel2.go /START OMIT/,/END OMIT/
+.play -edit ./src/channel2.go /START OMIT/,/END OMIT/
 
 * Buffered Channels (cont'd)
 - but if you try to put too much in the buffered channel...
 
-.play -edit ../src/channel3.go
+.play -edit ./src/channel3.go
 
 * Buffered Channels (cont'd)
 - but if we use a goroutine, it will work...
 
-.play -edit ../src/channel4.go
+.play -edit ./src/channel4.go
 
 * Channel Synchonization
 - channels can be used to synchronize execution across goroutines
 - we will use a blocking receive to wait for our goroutine to finish
 - (here's a case where the parameter name is the same as the variable name, on purpose)
 
-.play -edit ../src/channel5.go /START OMIT/,/END OMIT/
+.play -edit ./src/channel5.go /START OMIT/,/END OMIT/
 
 * Channel Directions
 - when using a channel as a parameter to a function, you can specify whether the channel is meant to send or receive
 
-.play -edit ../src/channel6.go /START OMIT/,/END OMIT/
+.play -edit ./src/channel6.go /START OMIT/,/END OMIT/
 
 * The select Statement
 - lets a goroutine wait on multiple communication operations
 - blocks until one of its cases can run, then it executes that case
 - if more than one are ready it chooses one at random
 
-.play -edit ../src/select.go /START OMIT/,/END OMIT/
+.play -edit ./src/select.go /START OMIT/,/END OMIT/
 
 * Timeouts
 we need to be able to time out if
@@ -1628,28 +1628,28 @@ we need to be able to time out if
 - we need to bound execution time
 - channels plus the `select` statement let us time out elegantly
 
-.play -edit ../src/select2.go /START OMIT/,/END OMIT/
+.play -edit ./src/select2.go /START OMIT/,/END OMIT/
 
 * Non-Blocking Channel Operations
 - sends and receives on channels are blocking
 - ...but, we can use `select` with `default` to implement non-blocking send/receive
 
-.play -edit ../src/select3.go /START OMIT/,/END OMIT/
+.play -edit ./src/select3.go /START OMIT/,/END OMIT/
 
 * Non-Blocking Channel Operations (cont'd)
 - here is a non-blocking multi-way `select`
 
-.play -edit ../src/select4.go 
+.play -edit ./src/select4.go 
 
 * Closing Channels
 
-.play -edit ../src/closechannel.go /START OMIT/,/END OMIT/
+.play -edit ./src/closechannel.go /START OMIT/,/END OMIT/
 
 * Range on a Channel
 - receive values repeatedly from a channel until it is closed
 - we can close a channel with data still in it, and have the data received afterwards
 
-.play -edit ../src/rangeonchannel.go /START OMIT/,/END OMIT/
+.play -edit ./src/rangeonchannel.go /START OMIT/,/END OMIT/
 
 * Exercise: Select/Concurrency
 - modify the previous Fibonacci example to use an unbuffered channel, rather than a buffered channel
@@ -1661,12 +1661,12 @@ we need to be able to time out if
 - e.g., want a server to gracefully shut down when it receives a SIGTERM
 - doesn't work in playground, run directly!
 
-.play -edit ../src/signal.go /START OMIT/,/END OMIT/
+.play -edit ./src/signal.go /START OMIT/,/END OMIT/
 
 * Waiting for Goroutines
 - a `sync.WaitGroup` waits for a collection of goroutines to finish
 
-.play -edit ../src/waitingforgo.go /START OMIT/,/END OMIT/
+.play -edit ./src/waitingforgo.go /START OMIT/,/END OMIT/
 
 * Exercise: Waiting for Goroutines
 - create 25,000 goroutines, each of which sleeps a random number of seconds before completing
@@ -1677,7 +1677,7 @@ we need to be able to time out if
 - go get a bunch of URLs
 - spin up a goroutine for each one
 
-.play -edit ../src/waitingforgo2.go /START OMIT/,/END OMIT/
+.play -edit ./src/waitingforgo2.go /START OMIT/,/END OMIT/
 
 * Mutual Exclusion (sync.Mutex)
 - what if we just want to make sure only one goroutine can access a variable at a time to avoid conflicts?
@@ -1693,18 +1693,18 @@ we need to be able to time out if
 
 * Mutual Exclusion (cont'd)
 
-.code ../src/mutex.go
+.code ./src/mutex.go
 
 * Mutual Exclusion (cont'd)
 
-.play -edit ../src/mutex2.go /START OMIT/,/END OMIT/
+.play -edit ./src/mutex2.go /START OMIT/,/END OMIT/
 
 * Race Detection
 - a data race occurs when two goroutines access the same variable concurrently and at least one of the accesses is a write
 
 - among the most common/most difficult to debug issues in concurrent systems
 
-.play -edit ../src/race.go
+.play -edit ./src/race.go
 
 * Race Detection (cont'd)
 
@@ -1755,7 +1755,7 @@ and then run it
 - Go comes with great unit testing capabilities built in
 - let's build a small package and see how to test it
 
-.code ../src/stack.go
+.code ./src/stack.go
 
 * Testing (cont'd)
 - let's create test file(s) named `*_test.go` in the same folder as our code
@@ -1763,7 +1763,7 @@ and then run it
 .link https://golang.org/pkg/testing
 - then create one or more functions named `Test*` which accept a `*testing.T` (that object manages state for the test)
 
-.code ../src/testpushpop.go
+.code ./src/testpushpop.go
 
 * Testing (cont'd)
 
