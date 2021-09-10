@@ -133,8 +133,6 @@ Fun–Programming with Go should be fun!
 
 5. Inside that directory create a file `hello.go` containing the following (OK to copy/paste)
 
-[//]: #  hello.go
-
 - click the `Run` button above and on any slide which has that button
 
 
@@ -257,8 +255,6 @@ single line initialization
 * Declaration + Initialization Shorthand
 
 - inside a function, the shorthand `:=` can be used
-
-[//]: #  ranveer.go /START OMIT/,/END OMIT/
 
 - outside functions, everything begins with a keyword (`var`, `func`, etc.) and the `:=` shorthand is not available
 
@@ -525,8 +521,6 @@ Write a function `doubler` which takes a string argument and doubles it, i.e., "
 
 * Functions as Arguments
 
-[//]: #  funcasarg.go
-
 * Getting Input from the User 
 
 * Command-Line Args
@@ -570,49 +564,33 @@ Write a function `doubler` which takes a string argument and doubles it, i.e., "
 - braces always required
 - else clause is of course optional
 
-[//]: #  -edit if.go
-
 * compound if statement
 - a statement can precede conditionals
 - any variables declared in this statement are available in all branches
 - very idiomatic in Golang
-
-[//]: #  -edit if2.go /START OMIT/,/END OMIT/
 
 * switch Statement
 - express conditionals across many branches
 - no parens
 - simplest form...
 
-[//]: #  -edit switch.go /START OMIT/,/END OMIT/
-
 * switch: Match Against Multiple Expressions
 
-[//]: #  -edit switch2.go
-
 * switch: Invoke a Function
-
-[//]: #  -edit switch3.go
 
 * switch: Condition Omitted
 
 - condition can be omitted altogether, simulating an if
 - ...or think of it as switch true
 
-[//]: #  -edit switch4.go /START OMIT/,/END OMIT/
-
 * switch: Regular Expressions
 
 - if you want to match a particular pattern, you can use Golang's regular expression package in conjunction with having `switch` call a function
-
-[//]: #  -edit switch5.go /START OMIT/,/END OMIT/
 
 * switch: fallthrough
 
 - in C, each branch of a switch statement must be terminated with a `break` statement, or else execution will "fall through" to the next branch–WITHOUT RUNNING THE TEST–after a branch is executed
 - in Go, if you want to fall through, you must explicitly state it
-
-[//]: #  -edit switch6.go /START OMIT/,/END OMIT
 
 * Exercise: Fizzbuzz
 
@@ -1721,15 +1699,11 @@ and then run it
 - Go comes with great unit testing capabilities built in
 - let's build a small package and see how to test it
 
-.code stack.go
-
 * Testing (cont'd)
 - let's create test file(s) named `*_test.go` in the same folder as our code
 - first we have to import the testing package 
 .link https://golang.org/pkg/testing
 - then create one or more functions named `Test*` which accept a `*testing.T` (that object manages state for the test)
-
-.code testpushpop.go
 
 * Testing (cont'd)
 
