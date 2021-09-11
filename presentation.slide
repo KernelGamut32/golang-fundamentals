@@ -7,10 +7,10 @@ Golang Fundamentals
 
 You:
 
-- Who are you?
 - What is your job title?
 - What do you do here?
-- What's your programming background?
+- What's your programming background (including any Go)?
+- What are you hoping to get out of this course?
 
 Me:
 
@@ -125,13 +125,17 @@ Fun–Programming with Go should be fun!
 
 1. Download from https://golang.org/dl
 
-2. Installer should put `go` in your `$PATH` (you may need to restart any open Terminal sessions for the change to take effect)
+2. Installer should put `go` in your `$PATH` (you may need to restart any open terminal sessions for the change to take effect)
 
 3. Create workspace dir `$HOME/go` (or set `$GOPATH` to use a different location)
 
-4. Create the directory `src/hello` inside your workspace
+4. Create a new folder for your lab work during the course
 
-5. Inside that directory create a file `hello.go` containing the following (OK to copy/paste)
+5. Open that folder in VS code
+
+6. From the root of this folder, run `go mod init github.com/<your handle>/golab` - this will create a new go.mod file in folder
+
+7. Inside this directory create a file `hello.go` containing the following (OK to copy/paste)
 
 .play src/hello.go
 
@@ -140,35 +144,63 @@ Fun–Programming with Go should be fun!
 
 * Compiling/Running
 
-1. cd $HOME/go/src/hello
+1. Ensure you are in the folder where you've created hello.go
 
-2. go build
+2. From that folder, run go build hello.go
 
 - this will create an executable in your directory
 
 3. ./hello
 
-4. go install
-
-- this will install the binary in `$GOPATH/bin` (optional)
-
 - you can also compile and run in one step: go run hello.go
 
-* Compiling/Running/Packaging
+* Managing a Project in Go
 
-Go code (source and compiled) can be found in your GOPATH
+The legacy way of organizing a project in go is called a workspace
 
-- if not set, defaults to ~/go
+Prior to go 1.13, go used workspaces in order to gather all the files necessary for a project
 
-`src` contains source code
-`bin` contains executables
-`pkg` contains compiled versions of the available libraries so the compiler can link against them without recompiling them
+Working in workspace mode means that all of our project related files needs to be in one place referenced by the GOPATH environment variable
 
-go tool
+When we used to install any dependency packages using go get command, it would save the package files under the $GOPATH/src path
 
-- go run will compile and run your code
-- go build will produce an executable
-- go install will install it in `$GOPATH/bin`
+* Introducing Go Modules
+
+Go modules gives us a built-in dependency management system
+
+As of go 1.13 modules are the official way to organize our source code as a project
+
+A module is nothing but a directory containing Go packages - these can be distribution packages or executable packages
+
+A module can also be treated as a package that contains nested packages
+
+A module is also like a package that you can share with others
+
+Modules allows us to work from any directory, not just GOPATH which gives us the flexibility to relocate our source code anywhere
+
+* Introducing Go Modules
+
+Modules allows us to install the precise version of a dependency package to avoid breaking changes
+
+Using modules we are able to import multiple versions of the same dependency package
+
+Like package.json in NPM, each module has a go.mod file that houses the dependencies for our project
+
+* Retrieving dependencies
+
+Often we will need to use third party libraries
+
+As we did before with workspaces , we can run the following to fetch a dependent lib 
+
+$ go get github.com/gorilla/mux 
+
+If module not currently used in code, will be listed with an "indirect" comment in go.mod
+
+Once we use the mux router the indirect comment will go away stating it knows that we are using the dependency
+
+If we use the module in our code without running go get, `go mod tidy` can:
+- clean up unused dependencies
+- automatically get dependencies as required
 
 * The Golang Playground 
 
@@ -176,12 +208,13 @@ go tool
 - compiles, links, and runs the program inside a sandbox
 - some limits on what we can do there: e.g., no keyboard input, random numbers are deterministic, time is constant (i.e., not current)
 
-.link https://play.golang.org/ click here to try it
+Go to https://play.golang.org/ to try it
 
 * Editors
 
 many editors have Golang plugins
 
+- VS Code
 - MacVim
 - Atom
 - Sublime
