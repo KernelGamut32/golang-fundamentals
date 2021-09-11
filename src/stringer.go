@@ -12,8 +12,8 @@ func (p Person) String() string {
 }
 
 func main() {
-    rs := Person{"Ranveer Singh", "Indiana University"}
-    ab := Person{"Amitabh Bachchan", "Sherwood College"}
+    rs := Person{"The Hamburglar", "McDonalds University"}
+    ab := Person{"Colonel Sanders", "KFC Technical College"}
     fmt.Printf("%s\n%s\n", rs, ab)
 }
 // END OMIT

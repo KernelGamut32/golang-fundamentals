@@ -268,30 +268,30 @@ or individually:
 all variables initialized to zero unless specified
 
  var (
- 	name      string = "Ranveer Singh"
+ 	name      string = "The Hamburglar"
  	age       int    = 34
- 	almaMater string = "Indiana University"
+ 	almaMater string = "McDonalds University"
  )
 
 types are inferred if initializers are present
 
  var (
- 	name      = "Ranveer Singh"
+ 	name      = "The Hamburglar"
  	age       =  34
- 	almaMater = "Indiana University"
+ 	almaMater = "McDonalds University"
  )
 
 single line initialization
 
  var (
- 	name, almaMater, age = "Ranveer Singh", "Indiana University", 34
+ 	name, almaMater, age = "The Hamburglar", "McDonalds University", 34
  )
 
 * Declaration + Initialization Shorthand
 
 - inside a function, the shorthand `:=` can be used
 
-.play src/ranveer.go /START OMIT/,/END OMIT/
+.play src/hamburglar.go /START OMIT/,/END OMIT/
 
 - outside functions, everything begins with a keyword (`var`, `func`, etc.) and the `:=` shorthand is not available
 
@@ -343,7 +343,7 @@ single line initialization
 .play -edit src/typefunc.go /START OMIT/,/END OMIT/
 
 * Converting to/from Strings
-.link https://golang.org/pkg/strconv strconv package
+https://pkg.go.dev/strconv for details on strconv package
 
 - most common conversions are `strconv.Atoi()` (ASCII to integer) and `strconv.Itoa()` (vice versa)
 - super useful functions in there
@@ -353,7 +353,8 @@ single line initialization
 * The fmt Package
 
 as we've seen, `print` and `println` are built in to Golang
-.link https://golang.org/ref/spec#Bootstrapping ...but they may eventually go away
+
+But they may eventually go away - see https://golang.org/ref/spec#Bootstrapping
 
 the `fmt` package contains versions that are more flexible (and it's considered more idiomatic to use `fmt`)
 
@@ -384,7 +385,7 @@ believe it or not, it's pronounced "`fumpt`"
 
 * Logging
 
-.link https://golang.org/pkg/log/ Golang log package used for debugging
+https://pkg.go.dev/log  - Golang log package used for debugging
 
 (by the way, we can use the `godoc` tool if we are offline)
 
@@ -429,7 +430,7 @@ Source files for the `rand` package are prefaced with
 
  package rand
  
-.link https://github.com/golang/go/blob/master/src/math/rand/rand.go Click here to view source code
+https://github.com/golang/go/blob/master/src/math/rand/rand.go - view source code
 
 * The main Package
 
@@ -455,11 +456,13 @@ Source files for the `rand` package are prefaced with
 
 * Exercise: Packages
 
-- create your own package in your `$GOPATH`/src directory
+We'll walk through this one together...
+
+- create your own package in your project directory
+- define the package in a separate folder and make sure the package name matches the folder name
 - be sure to export at least one function and one constant
-- build your package with go build
-- install your package with go install
 - write a program in different subdirectory which imports your package
+- test the client code
 
 * Possibly Painful Pedantry?
 - Go complains about unused variables and imports
@@ -468,7 +471,7 @@ Source files for the `rand` package are prefaced with
 
 .play src/unused.go
 
-.link https://play.golang.org/p/OzTo_vd9ADo view in playground
+Try in the Go playground
 
 * Possibly Painful Pedantry? (cont'd)
 “The presence of an unused variable may indicate a bug, while unused imports just slow down compilation, an effect that can become substantial as a program accumulates code and programmers over time. For these reasons, Go refuses to compile programs with unused variables or imports, trading short-term convenience for long-term build speed and program clarity.
@@ -512,14 +515,14 @@ Nowadays, most Go programmers use a tool, `goimports`, which automatically rewri
 
 * More About Return Values
 - you can name the return values
-- you still need a `return` statement
+- you still need a `return` statement (AKA a "naked" return)
 - *EDIT* *THE* *CODE* to remove the named return values and be sure it still runs properly
 
 .play -edit src/named.go
 
 * Builtin Functions
 
-- docs in https://golang.org/pkg/builtin but code is not actually in a package
+- docs in https://pkg.go.dev/builtin but code is not actually in a package
 - we've alread seen `print` and `println`
 - `complex`, `real`, and `imag` are for imaginary numbers
 
@@ -770,11 +773,7 @@ Write a function which implements the Collatz Conjecture:
 
 .image https://imgs.xkcd.com/comics/goto.png
 
-.link https://homepages.cwi.nl/~storm/teaching/reader/Dijkstra68.pdf Edsger Dijkstra - Go To Statement Considered Harmful
-
-.link https://www.cs.utexas.edu/users/EWD/ewd02xx/EWD215.PDF A Case against the GO TO Statement
-
-- Go has a goto statement–judicious use of it makes your code easier to understand
+- Go has a goto statement – judicious use can make your code easier to understand
 
 - jump to a named label
 
@@ -1524,7 +1523,7 @@ know when to panic:
 - NOTE: the `strings` package has several functions that will be helpful
 - NOTE 2: ideally we would sort by counts, from most common to least common, but this is much more difficult to do in Go than it is in Python
 - EXTRA: remove punctuation, so *Hamlet,* == *Hamlet*
-.link http://bit.ly/BillShak Test on Shakespeare's Hamlet
+Test on Shakespeare's Hamlet (http://bit.ly/BillShak)
 
 * Concurrency
 
@@ -1684,11 +1683,6 @@ we need to be able to time out if
 
 .play -edit src/rangeonchannel.go /START OMIT/,/END OMIT/
 
-* Exercise: Select/Concurrency
-- modify the previous Fibonacci example to use an unbuffered channel, rather than a buffered channel
-- add a second unbuffered channel called `quit`, which is used by the fibonacci routine to know there is no more work to do (in other words, fibonacci should listen for a message on the `quit` channel, and if it receives the message, it should stop generating Fibonacci numbers)
-- the above means that the fibonacci function will no longer have a loop from 1 to 10
-
 * Signal Handling
 - sometimes we’d like our programs to intelligently handle Linux signals
 - e.g., want a server to gracefully shut down when it receives a SIGTERM
@@ -1793,7 +1787,7 @@ and then run it
 * Testing (cont'd)
 - let's create test file(s) named `*_test.go` in the same folder as our code
 - first we have to import the testing package 
-.link https://golang.org/pkg/testing
+.link https://pkg.go.dev/testing
 - then create one or more functions named `Test*` which accept a `*testing.T` (that object manages state for the test)
 
 .code src/testpushpop.go
@@ -1857,7 +1851,7 @@ add tests to your `bank` package
  }
 
 * Exercise: Example Tests
-- write a Golang program that takes a string message such as "Hello from VMware", splits it into words, and then enters the words as keys in a map (the values are up to you)
+- write a Golang program that takes a string message such as "Hello from GoLang", splits it into words, and then enters the words as keys in a map (the values are up to you)
 - iterate through the map and output the keys, which will be in a random order
 - write an "example" test to ensure the output is correct
 

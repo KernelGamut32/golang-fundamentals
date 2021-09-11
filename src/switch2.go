@@ -9,8 +9,8 @@ func location(city string) (string, string) {
 	switch city {
 	case "Delhi", "Hyderabad", "Mumbai", "Kolkata", "Chennai", "Kochi":
 		region, continent = "India", "Asia"
-	case "Lafayette", "Louisville", "Boulder":
-		region, continent = "Colorado", "USA"
+	case "Columbus", "Cleveland", "Dayton":
+		region, continent = "Ohio, USA", "North America"
 	default:
 		region, continent = "Unknown", "Unknown"
 	}
@@ -18,6 +18,6 @@ func location(city string) (string, string) {
 }
 
 func main() {
-	region, continent := location("Lafayette")
-	fmt.Printf("Dave works in %s, %s\n", region, continent)
+	region, continent := location("Columbus")
+	fmt.Printf("Allen works in %s, %s\n", region, continent)
 }
