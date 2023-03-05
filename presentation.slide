@@ -144,7 +144,7 @@ Fun–Programming with Go should be fun!
 * Running Slides Interactively
 Clone GitHub repo using 
 
-    git clone https://github.com/KernelGamut32/golang-live.git
+    git clone https://github.com/KernelGamut32/golang-fundamentals.git
 
 From root of local folder run:
 
